@@ -14,6 +14,11 @@ const connectToDB = require('./config/mongodb.config')
 // connecting to mongodb atlas
 connectToDB()
 
+//importing routes
+const authRoutes = require('./routes/authRoutes')
+
+app.use("/api/auth", authRoutes)
+
 app.get("/", (req, res) => {
   res.send(" SafeComm Transportation API is working fine!");
 });
