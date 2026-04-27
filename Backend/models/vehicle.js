@@ -1,5 +1,7 @@
 const mongoose = require("mongoose")
 
+// transit vehicle schema
+
 // Defining the structure of a Vehicle document in MongoDB
 const vehicleSchema = new mongoose.Schema(
     {
