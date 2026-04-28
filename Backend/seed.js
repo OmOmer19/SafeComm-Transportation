@@ -42,6 +42,42 @@ const routes = [
         ],
         distance: 10.3,
         avgSafetyScore: 0
+    },
+    {
+        routeId: "ROUTE-104",
+        name: "Rawatpur to Kidwai Nagar",
+        startPoint: { name: "Rawatpur", lat: 26.5012, lng: 80.3201 },
+        endPoint: { name: "Kidwai Nagar", lat: 26.4731, lng: 80.3654 },
+        waypoints: [
+            { name: "Kalyanpur", lat: 26.4953, lng: 80.2716 },
+            { name: "Govind Nagar", lat: 26.4682, lng: 80.3541 }
+        ],
+        distance: 11.7,
+        avgSafetyScore: 0
+    },
+    {
+        routeId: "ROUTE-105",
+        name: "Barra to Naveen Market",
+        startPoint: { name: "Barra", lat: 26.4101, lng: 80.3456 },
+        endPoint: { name: "Naveen Market", lat: 26.4640, lng: 80.3496 },
+        waypoints: [
+            { name: "Kidwai Nagar", lat: 26.4731, lng: 80.3654 },
+            { name: "Phoolbagh", lat: 26.4607, lng: 80.3423 }
+        ],
+        distance: 9.8,
+        avgSafetyScore: 0
+    },
+    {
+        routeId: "ROUTE-106",
+        name: "Armapur to Civil Lines",
+        startPoint: { name: "Armapur", lat: 26.4823, lng: 80.2987 },
+        endPoint: { name: "Civil Lines", lat: 26.4693, lng: 80.3319 },
+        waypoints: [
+            { name: "Kakadeo", lat: 26.4812, lng: 80.3102 },
+            { name: "Tilak Nagar", lat: 26.4753, lng: 80.3201 }
+        ],
+        distance: 7.4,
+        avgSafetyScore: 0
     }
 ]
 
@@ -59,9 +95,45 @@ const vehicles = [
         status: "active"
     },
     {
-        vehicleId: "TRAM-101",
-        type: "tram",
+        vehicleId: "BUS-103",
+        type: "bus",
         currentLocation: { lat: 26.4640, lng: 80.3496 },
+        status: "active"
+    },
+    {
+        vehicleId: "BUS-104",
+        type: "bus",
+        currentLocation: { lat: 26.4812, lng: 80.3102 },
+        status: "active"
+    },
+    {
+        vehicleId: "METRO-101",
+        type: "metro",
+        currentLocation: { lat: 26.4731, lng: 80.3654 },
+        status: "active"
+    },
+    {
+        vehicleId: "METRO-102",
+        type: "metro",
+        currentLocation: { lat: 26.4953, lng: 80.2716 },
+        status: "active"
+    },
+    {
+        vehicleId: "METRO-103",
+        type: "metro",
+        currentLocation: { lat: 26.5012, lng: 80.3201 },
+        status: "active"
+    },
+    {
+        vehicleId: "AUTO-101",
+        type: "auto",
+        currentLocation: { lat: 26.4823, lng: 80.2987 },
+        status: "active"
+    },
+    {
+        vehicleId: "AUTO-102",
+        type: "auto",
+        currentLocation: { lat: 26.4101, lng: 80.3456 },
         status: "active"
     }
 ]
@@ -82,9 +154,9 @@ const seedDB = async () => {
         console.log("✅ Routes seeded successfully")
 
         // assigning routeId to vehicles and inserting
-        vehicles[0].routeId = insertedRoutes[0]._id
-        vehicles[1].routeId = insertedRoutes[1]._id
-        vehicles[2].routeId = insertedRoutes[2]._id
+        vehicles.forEach((vehicle,index) =>{
+            vehicle.routeId = insertedRoutes[index % insertedRoutes.length]._id
+        })
         await Vehicle.insertMany(vehicles)
         console.log("✅ Vehicles seeded successfully")
 

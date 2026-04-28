@@ -15,7 +15,7 @@ const vehicleSchema = new mongoose.Schema(
         // Type of public transit vehicle
         type: {
             type: String,
-            enum: ["bus", "tram", "metro"], // only these types allowed
+            enum: ["bus", "auto", "metro"], // only these types allowed
             required: true,
         },
 

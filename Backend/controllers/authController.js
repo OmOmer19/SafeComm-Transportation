@@ -43,7 +43,7 @@ const registerUser = async (req, res) => {
 
     // JWT TOKEN GENERATION
     const token = jwt.sign(
-        { id: user._id },
+        { id: user._id, role:user.role },//added id and role 
        process.env.JWT_SECRET,
        { expiresIn: "7d" }
         )        
@@ -105,7 +105,7 @@ const loginUser = async (req, res) => {
 
     // JWT TOKEN GENERATION
     const token = jwt.sign(
-      { id: user._id },
+      { id: user._id, role: user.role }, //added id and user role
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
     )
