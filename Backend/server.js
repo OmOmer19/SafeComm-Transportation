@@ -13,7 +13,7 @@ const server = http.createServer(app)
 //initializing socket.io on our http server
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", //allowing frontend to connect
+    origin: ["http://localhost:5173","https://safecomm-transportation.vercel.app"],//allowing frontend to connect
     methods: ["GET","POST"]
   }
 })
