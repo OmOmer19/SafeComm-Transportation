@@ -3,7 +3,7 @@
 import axios from "axios"
 
 const API = axios.create({
-    baseURL: "http://localhost:5000/api", // our backend URL
+    baseURL: "https://safecomm-api.onrender.com/", // deployed backend URL
 })
 
 // attaching token to every request automatically if it exists

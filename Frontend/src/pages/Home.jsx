@@ -35,8 +35,8 @@ function Home() {
   })
 
   useEffect(() => {
-    // connecting to socket.io server
-    const socket = io("http://localhost:5000")
+    // connecting to deployed socket.io server
+    const socket = io("https://safecomm-api.onrender.com/")
 
     // listening for vehicle location updates from backend
     socket.on("vehicleLocationUpdate", (data) => {
