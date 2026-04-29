@@ -18,7 +18,10 @@ const io = new Server(server, {
   }
 })
 
-app.use(cors()) //enabling cors
+app.use(cors({
+  origin: ["http://localhost:5173", "https://safecomm-transportation.vercel.app"],
+  credentials: true
+})) //enabling cors
 
 app.use(express.json()) //enabling json parsing for request bodies
 
