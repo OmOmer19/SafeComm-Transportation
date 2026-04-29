@@ -12,6 +12,13 @@ A community-based safety platform for public transportation in Kanpur. SafeComm 
 
 ---
 
+## 🔗 Live Demo
+
+- **Frontend** — https://safecomm-transportation.vercel.app
+- **Backend API** — https://safecomm-api.onrender.com
+
+---
+
 ## 🌟 Features
 
 ### Core Features
